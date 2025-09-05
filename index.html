@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kombi Klima Ustası - Kombi & Klima Servisi</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Rastgele Ustalar - Kombi & Klima Servisi</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2e8b57;
-            --secondary-color: #f0f8ff;
-            --accent-color: #ffb347;
+            --primary-color: #2e8b57; /* Sea Green */
+            --secondary-color: #f0f8ff; /* Alice Blue */
+            --accent-color: #ffb347; /* Saffron */
             --text-color: #333333;
             --light-text-color: #ffffff;
             --background-dark: #202020;
@@ -18,17 +17,32 @@
             --border-radius: 8px;
             --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             --transition-speed: 0.3s ease;
-            --primary-rgb: 46, 139, 87;
         }
 
         body {
             font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--background-light);
+            line-height: 1.6;
             color: var(--text-color);
+            background-color: var(--background-light);
+            scroll-behavior: smooth;
         }
 
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            margin-top: 0;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
         .header {
             background-color: var(--background-dark);
             padding: 15px 0;
@@ -37,67 +51,81 @@
             top: 0;
             z-index: 1000;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
         .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
             color: var(--light-text-color);
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 1.8em;
-            text-decoration: none;
         }
-
+        .logo svg {
+            margin-right: 10px;
+            width: 40px;
+            height: 40px;
+            fill: var(--accent-color);
+        }
         .nav ul {
             list-style: none;
-            display: flex;
-            gap: 25px;
             margin: 0;
             padding: 0;
+            display: flex;
+            gap: 25px;
         }
-
         .nav a {
-            color: var(--secondary-color);
             text-decoration: none;
+            color: var(--secondary-color);
             font-weight: 600;
+            padding: 5px 0;
             transition: color var(--transition-speed);
         }
-
-        .nav a:hover {
-            color: var(--accent-color);
+        .nav a:hover, .nav a.active {
+            color: var(--primary-color);
         }
 
+        /* Hero Section */
         .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/1600x900/?hvac,technician') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/random/1600x900/?hvac,technician,tools') no-repeat center center/cover;
             color: var(--light-text-color);
             text-align: center;
-            padding: 100px 20px;
+            padding: 100px 0;
             min-height: 450px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            position: relative;
         }
-
-        .hero-section h1 {
-            font-size: 3em;
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(var(--primary-rgb), 0.2), rgba(var(--primary-rgb), 0));
+        }
+        .hero-content {
+            z-index: 1;
+        }
+        .hero-content h1 {
+            font-size: 3.5em;
             margin-bottom: 20px;
+            color: var(--light-text-color);
         }
-
-        .hero-section p {
-            font-size: 1.2em;
+        .hero-content p {
+            font-size: 1.3em;
             max-width: 700px;
-            margin-bottom: 30px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
         }
-
         .btn {
+            display: inline-block;
             background-color: var(--accent-color);
             color: var(--text-color);
             padding: 12px 30px;
@@ -108,31 +136,385 @@
             transition: background-color var(--transition-speed), transform var(--transition-speed);
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
-
         .btn:hover {
-            background-color: #ff9933;
+            background-color: #ff9933; /* Slightly darker accent */
             transform: translateY(-2px);
+        }
+
+        /* About & Services Sections */
+        .section-padding {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -15px;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+        .about-content, .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+        .about-image img {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        .service-card {
+            background-color: var(--light-text-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .service-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        .service-card p {
+            font-size: 0.95em;
+        }
+        .service-card svg {
+            width: 60px;
+            height: 60px;
+            fill: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        /* Testimonials/Videos Section */
+        .testimonials-section {
+            background-color: var(--background-dark);
+            color: var(--light-text-color);
+            padding: 80px 0;
+        }
+        .testimonials-section .section-title {
+            color: var(--light-text-color);
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            background-color: rgba(0,0,0,0.5); /* Placeholder background */
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .testimonial-card {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .testimonial-card .author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            padding: 80px 0;
+            text-align: center;
+        }
+        .contact-section .section-title {
+            color: var(--light-text-color);
+        }
+        .contact-info p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color var(--transition-speed);
+        }
+        .contact-info a:hover {
+            color: #ff9933;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--background-dark);
+            color: var(--secondary-color);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9em;
+        }
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 5px;
+            transition: color var(--transition-speed);
+        }
+        .footer a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+            .hero-content p {
+                font-size: 1em;
+            }
+            .section-title {
+                font-size: 2em;
+            }
+            .about-content, .services-grid, .video-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-image {
+                order: -1; /* Image first on mobile */
+            }
         }
     </style>
 </head>
 <body>
+
     <header class="header">
         <div class="container">
-            <a href="#" class="logo">Kombi Klima Ustası</a>
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2zM10.87 9.25L10 10l.87.75L12 12l1.13-1.25L12 9.25zM12 6c-1.1 0-2 .9-2 2h4c0-1.1-.9-2-2-2zM7.05 15.5l1.41-1.41L12 17.59l3.54-3.54 1.41 1.41L12 20.41zM6 12c0-3.31 2.69-6 6-6s6 2.69 6 6h-2c0-2.21-1.79-4-4-4s-4 1.79-4 4H6zm10 0h2c0 3.31-2.69 6-6 6s-6-2.69-6-6h2c0 2.21 1.79 4 4 4s4-1.79 4-4z"/>
+                    <path d="M0 0h24v24H0z" fill="none"/>
+                </svg>
+                Rastgele Ustalar
+            </a>
             <nav class="nav">
                 <ul>
-                    <li><a href="#">Ana Sayfa</a></li>
-                    <li><a href="#">Hizmetler</a></li>
-                    <li><a href="#">İletişim</a></li>
+                    <li><a href="#hero" class="active">Anasayfa</a></li>
+                    <li><a href="#about">Hakkımızda</a></li>
+                    <li><a href="#services">Hizmetlerimiz</a></li>
+                    <li><a href="#testimonials">Referanslar</a></li>
+                    <li><a href="#contact">İletişim</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="hero-section">
-        <h1>Profesyonel Kombi & Klima Servisi</h1>
-        <p>İstanbul genelinde hızlı, güvenilir ve uygun fiyatlı teknik servis hizmeti sunuyoruz.</p>
-        <a href="#iletisim" class="btn">Hemen İletişime Geç</a>
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1>Kombi ve Klima Uzmanınız</h1>
+            <p>Isıtma ve Soğutma Çözümlerinde Güvenilir Adresiniz. Bakım, Onarım ve Montaj Hizmetleri.</p>
+            <a href="#contact" class="btn">Hemen Randevu Alın</a>
+        </div>
     </section>
+
+    <section id="about" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Hakkımızda</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>"Rastgele Ustalar" Kimdir?</h3>
+                    <p>Yılların verdiği tecrübe ve uzman kadromuzla, kombi ve klima sistemlerinizin her türlü ihtiyacına profesyonel çözümler sunuyoruz. Müşteri memnuniyetini ön planda tutarak, hızlı, güvenilir ve kaliteli hizmet anlayışıyla sektörde fark yaratıyoruz.</p>
+                    <p>Ev ve iş yerlerinizdeki ısıtma ve soğutma sistemlerinizin sorunsuz çalışması için periyodik bakımdan arıza onarımına, yeni kurulumdan parça değişimine kadar geniş bir yelpazede hizmet veriyoruz. Enerji verimliliğini artırmak ve yaşam kalitenizi yükseltmek için buradayız.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://source.unsplash.com/random/600x400/?hvac,tools" alt="Kombi Klima Teknisyeni">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-padding" style="background-color: var(--background-light);">
+        <div class="container">
+            <h2 class="section-title">Hizmetlerimiz</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM12 6c-1.1 0-2 .9-2 2h4c0-1.1-.9-2-2-2zM10.87 9.25L10 10l.87.75L12 12l1.13-1.25L12 9.25zM7.05 15.5l1.41-1.41L12 17.59l3.54-3.54 1.41 1.41L12 20.41zM6 12c0-3.31 2.69-6 6-6s6 2.69 6 6h-2c0-2.21-1.79-4-4-4s-4 1.79-4 4H6zm10 0h2c0 3.31-2.69 6-6 6s-6-2.69-6-6h2c0 2.21 1.79 4 4 4s4-1.79 4-4z"/>
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                    </svg>
+                    <h3>Kombi Bakımı</h3>
+                    <p>Kombinizin düzenli bakımı ile enerji tasarrufu sağlayın ve arızaların önüne geçin.</p>
+                </div>
+                <div class="service-card">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM15 15H9v-2h6v2zm3-4H6V9h12v2zm0-4H6V5h12v2z"/>
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                    </svg>
+                    <h3>Klima Servisi</h3>
+                    <p>Klimanızın performansını artırmak ve sağlıklı bir hava sağlamak için profesyonel servis.</p>
+                </div>
+                <div class="service-card">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2zM10.87 9.25L10 10l.87.75L12 12l1.13-1.25L12 9.25zM12 6c-1.1 0-2 .9-2 2h4c0-1.1-.9-2-2-2zM7.05 15.5l1.41-1.41L12 17.59l3.54-3.54 1.41 1.41L12 20.41zM6 12c0-3.31 2.69-6 6-6s6 2.69 6 6h-2c0-2.21-1.79-4-4-4s-4 1.79-4 4H6zm10 0h2c0 3.31-2.69 6-6 6s-6-2.69-6-6h2c0 2.21 1.79 4 4 4s4-1.79 4-4z"/>
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                    </svg>
+                    <h3>Arıza Onarımı</h3>
+                    <p>Her marka ve model kombi ve klimanız için hızlı ve kesin arıza teşhisi ve onarımı.</p>
+                </div>
+                <div class="service-card">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                    </svg>
+                    <h3>Montaj & Kurulum</h3>
+                    <p>Yeni cihazlarınızın uzman ekibimiz tarafından sorunsuz ve güvenli montajı.</p>
+                </div>
+                <div class="service-card">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M13.5 10H13v-3c0-1.1-.9-2-2-2s-2 .9-2 2v3h-.5C8.17 10 7 11.17 7 12.5v4c0 1.33 1.17 2.5 2.5 2.5h5c1.33 0 2.5-1.17 2.5-2.5v-4c0-1.33-1.17-2.5-2.5-2.5zm-.5 0h-2v-3c0-.55.45-1 1-1s1 .45 1 1v3zm1 7c0 .55-.45 1-1 1h-5c-.55 0-1-.45-1-1v-4h7v4z"/>
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                    </svg>
+                    <h3>Yedek Parça</h3>
+                    <p>Orijinal ve garantili yedek parça temini ve değişimi ile cihazlarınızın ömrünü uzatın.</p>
+                </div>
+                <div class="service-card">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                    </svg>
+                    <h3>Danışmanlık</h3>
+                    <p>Hangi cihazın size uygun olduğu konusunda uzmanlarımızdan ücretsiz danışmanlık hizmeti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Müşterilerimiz Ne Diyor?</h2>
+            <div class="video-grid">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div style="margin-top: 50px; text-align: center;">
+                 <h3 style="color: var(--light-text-color); margin-bottom: 30px;">Yazılı Referanslarımız</h3>
+                 <div class="services-grid">
+                    <div class="testimonial-card">
+                        <p>"Rastgele Ustalar ekibi, kombi arızamı çok hızlı ve uygun fiyata giderdi. Gerçekten profesyoneller!"</p>
+                        <div class="author">- Ayşe Yılmaz</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Klima bakımı için çağırdım, titiz çalışmaları ve güler yüzlü yaklaşımları takdire şayan."</p>
+                        <div class="author">- Mehmet Demir</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Yeni klimamın montajını sorunsuz bir şekilde yaptılar. Herkese tavsiye ederim."</p>
+                        <div class="author">- Zeynep Kara</div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Bize Ulaşın</h2>
+            <p>Kombi veya klima sorunlarınız için bize hemen ulaşın, uzman ekibimiz en kısa sürede yanınızda olsun.</p>
+            <div class="contact-info">
+                <p>Telefon: <a href="tel:+905551234567">0555 123 45 67</a></p>
+                <p>E-posta: <a href="mailto:info@rastgeleustalar.com">info@rastgeleustalar.com</a></p>
+                <p>Adres: Örnek Mah. Deneme Cad. No: 123, Rastgele Şehir / Türkiye</p>
+            </div>
+            <a href="tel:+905551234567" class="btn" style="margin-top: 30px;">Hemen Ara!</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Rastgele Ustalar. Tüm Hakları Saklıdır.</p>
+            <p>
+                <a href="#">Gizlilik Politikası</a> |
+                <a href="#">Kullanım Koşulları</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Update active class
+                document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Set active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.href.includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
