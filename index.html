@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rastgele Ustalar - Kombi & Klima Servisi</title>
+    <title>Kombi Klima Ustası - Bakım, Onarım ve Montaj Hizmetleri</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -101,15 +101,6 @@
             justify-content: center;
             position: relative;
         }
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(var(--primary-rgb), 0.2), rgba(var(--primary-rgb), 0));
-        }
         .hero-content {
             z-index: 1;
         }
@@ -134,10 +125,10 @@
             font-weight: 700;
             font-size: 1.1em;
             transition: background-color var(--transition-speed), transform var(--transition-speed);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
         .btn:hover {
-            background-color: #ff9933; /* Slightly darker accent */
+            background-color: #ff9933;
             transform: translateY(-2px);
         }
 
@@ -308,12 +299,16 @@
             }
             .section-title {
                 font-size: 2em;
+                margin-bottom: 40px;
             }
             .about-content, .services-grid, .video-grid {
                 grid-template-columns: 1fr;
             }
             .about-image {
                 order: -1; /* Image first on mobile */
+            }
+            .section-padding {
+                padding: 60px 0;
             }
         }
     </style>
@@ -327,7 +322,7 @@
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2zM10.87 9.25L10 10l.87.75L12 12l1.13-1.25L12 9.25zM12 6c-1.1 0-2 .9-2 2h4c0-1.1-.9-2-2-2zM7.05 15.5l1.41-1.41L12 17.59l3.54-3.54 1.41 1.41L12 20.41zM6 12c0-3.31 2.69-6 6-6s6 2.69 6 6h-2c0-2.21-1.79-4-4-4s-4 1.79-4 4H6zm10 0h2c0 3.31-2.69 6-6 6s-6-2.69-6-6h2c0 2.21 1.79 4 4 4s4-1.79 4-4z"/>
                     <path d="M0 0h24v24H0z" fill="none"/>
                 </svg>
-                Rastgele Ustalar
+                Kombi Klima Ustası
             </a>
             <nav class="nav">
                 <ul>
@@ -354,7 +349,7 @@
             <h2 class="section-title">Hakkımızda</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>"Rastgele Ustalar" Kimdir?</h3>
+                    <h3>Kombi Klima Ustası olarak Kimiz?</h3>
                     <p>Yılların verdiği tecrübe ve uzman kadromuzla, kombi ve klima sistemlerinizin her türlü ihtiyacına profesyonel çözümler sunuyoruz. Müşteri memnuniyetini ön planda tutarak, hızlı, güvenilir ve kaliteli hizmet anlayışıyla sektörde fark yaratıyoruz.</p>
                     <p>Ev ve iş yerlerinizdeki ısıtma ve soğutma sistemlerinizin sorunsuz çalışması için periyodik bakımdan arıza onarımına, yeni kurulumdan parça değişimine kadar geniş bir yelpazede hizmet veriyoruz. Enerji verimliliğini artırmak ve yaşam kalitenizi yükseltmek için buradayız.</p>
                 </div>
@@ -387,7 +382,7 @@
                 </div>
                 <div class="service-card">
                     <svg viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2zM10.87 9.25L10 10l.87.75L12 12l1.13-1.25L12 9.25zM12 6c-1.1 0-2 .9-2 2h4c0-1.1-.9-2-2-2zM7.05 15.5l1.41-1.41L12 17.59l3.54-3.54 1.41 1.41L12 20.41zM6 12c0-3.31 2.69-6 6-6s6 2.69 6 6h-2c0-2.21-1.79-4-4-4s-4 1.79-4 4H6zm10 0h2c0 3.31-2.69 6-6 6s-6-2.69-6-6h2c0 2.21 1.79 4 4 4s4-1.79 4-4z"/>
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM12 6c-1.1 0-2 .9-2 2h4c0-1.1-.9-2-2-2zM10.87 9.25L10 10l.87.75L12 12l1.13-1.25L12 9.25zM7.05 15.5l1.41-1.41L12 17.59l3.54-3.54 1.41 1.41L12 20.41zM6 12c0-3.31 2.69-6 6-6s6 2.69 6 6h-2c0-2.21-1.79-4-4-4s-4 1.79-4 4H6zm10 0h2c0 3.31-2.69 6-6 6s-6-2.69-6-6h2c0 2.21 1.79 4 4 4s4-1.79 4-4z"/>
                         <path d="M0 0h24v24H0z" fill="none"/>
                     </svg>
                     <h3>Arıza Onarımı</h3>
@@ -439,7 +434,7 @@
                  <h3 style="color: var(--light-text-color); margin-bottom: 30px;">Yazılı Referanslarımız</h3>
                  <div class="services-grid">
                     <div class="testimonial-card">
-                        <p>"Rastgele Ustalar ekibi, kombi arızamı çok hızlı ve uygun fiyata giderdi. Gerçekten profesyoneller!"</p>
+                        <p>"Kombi Klima Ustası ekibi, kombi arızamı çok hızlı ve uygun fiyata giderdi. Gerçekten profesyoneller!"</p>
                         <div class="author">- Ayşe Yılmaz</div>
                     </div>
                     <div class="testimonial-card">
@@ -461,7 +456,7 @@
             <p>Kombi veya klima sorunlarınız için bize hemen ulaşın, uzman ekibimiz en kısa sürede yanınızda olsun.</p>
             <div class="contact-info">
                 <p>Telefon: <a href="tel:+905551234567">0555 123 45 67</a></p>
-                <p>E-posta: <a href="mailto:info@rastgeleustalar.com">info@rastgeleustalar.com</a></p>
+                <p>E-posta: <a href="mailto:info@kombiklimaservisi.com">info@kombiklimaservisi.com</a></p>
                 <p>Adres: Örnek Mah. Deneme Cad. No: 123, Rastgele Şehir / Türkiye</p>
             </div>
             <a href="tel:+905551234567" class="btn" style="margin-top: 30px;">Hemen Ara!</a>
@@ -470,7 +465,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2023 Rastgele Ustalar. Tüm Hakları Saklıdır.</p>
+            <p>&copy; 2023 Kombi Klima Ustası. Tüm Hakları Saklıdır.</p>
             <p>
                 <a href="#">Gizlilik Politikası</a> |
                 <a href="#">Kullanım Koşulları</a>
